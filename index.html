@@ -36,6 +36,11 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .logo b{color:var(--teal-d)}
 nav ul{display:flex;gap:26px;list-style:none;font-weight:500}
 nav ul a{text-decoration:none;color:var(--muted)} nav ul a:hover{color:var(--ink)}
+.nav-r{display:flex;align-items:center;gap:12px}
+.lang{display:inline-flex;border:2px solid var(--line);border-radius:999px;padding:3px;background:var(--white)}
+.lang button{border:0;background:transparent;font:800 14px Outfit;padding:6px 12px;border-radius:999px;cursor:pointer;color:var(--muted)}
+.lang button[aria-pressed="true"]{background:var(--teal-d);color:#fff}
+@media (max-width:480px){ .nav-cta{display:none} }
 
 /* hero */
 .hero{background:linear-gradient(135deg,#D9F3F9 0%,#EEF9FC 45%,#FFEFE3 100%);padding:64px 0 80px;overflow:hidden}
@@ -215,7 +220,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <li><a href="#arak">Árak</a></li>
       <li><a href="#kapcsolat">Kapcsolat</a></li>
     </ul>
-    <a class="btn btn-o" href="#kapcsolat" style="padding:10px 18px">Ajánlatot kérek</a>
+    <div class="nav-r">
+      <div class="lang" role="group" aria-label="Nyelv / Language">
+        <button type="button" data-l="hu" aria-pressed="true">HU</button>
+        <button type="button" data-l="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn-o nav-cta" href="#kapcsolat" style="padding:10px 18px">Ajánlatot kérek</a>
+    </div>
   </div>
 </nav>
 
@@ -347,12 +358,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <div>
         <span class="kicker">Kapcsolat</span>
         <h2 class="h2">Beszéljünk az ön weboldaláról!</h2>
-        <p class="lead">Hétköznap változó beosztásban dolgozom, ezért hétköznap kérem, először <b>SMS-ben</b> keressen – amint tudom, visszahívom. Hétvégén nyugodtan hívjon bármikor.</p>
+        <p class="lead">Hétköznap változó beosztásban dolgozom, ezért hétköznap kérem, először <b>SMS-ben</b> keressen – amint tudom, visszahívom. <b>Szombaton 10 és 16 óra között</b> nyugodtan hívjon.</p>
         <div class="now"><span class="dot"></span><div><b id="nowTitle">Ma hétköznap van</b><span id="nowText">Írjon SMS-t, és még ma visszahívom.</span></div></div>
       </div>
       <div class="when">
-        <div class="slot" id="slotWeek"><div class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div><h3>Hétfő – Péntek</h3><p>Először SMS-ben – visszahívom, amint szabad vagyok.</p></div></div>
-        <div class="slot" id="slotWeekend"><div class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></div><div><h3>Szombat – Vasárnap</h3><p>Hívjon bátran, napközben elérhető vagyok.</p></div></div>
+        <div class="slot" id="slotWeek"><div class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div><h3>Hétfő – Péntek, vasárnap</h3><p>Először SMS-ben – visszahívom, amint szabad vagyok.</p></div></div>
+        <div class="slot" id="slotWeekend"><div class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></div><div><h3>Szombat 10:00 – 16:00</h3><p>Hívjon nyugodtan, ilyenkor elérhető vagyok.</p></div></div>
         <div class="links">
           
           <a class="sms" href="sms:+36305559197">SMS küldése <span>06 30 555 9197 →</span></a>
@@ -368,7 +379,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <details class="rv"><summary>Kell hozzá értenem a számítógéphez?</summary><p>Egyáltalán nem. Mindent én intézek, önnek csak szólnia kell, ha valamit változtatni szeretne.</p></details>
       <details class="rv"><summary>Kié lesz a domain és az oldal?</summary><p>A domain az ön nevére kerül. Ha egyszer felmondja a karbantartást, az oldalt átadom önnek.</p></details>
       <details class="rv"><summary>Mi van, ha nem tetszik a mintaoldal?</summary><p>Akkor nem fizet semmit. A mintaoldal ingyenes és kötelezettség nélküli.</p></details>
-      <details class="rv"><summary>Adok számlát?</summary><p>Igen, minden díjról számlát állítok ki.</p></details>
+      <details class="rv"><summary>Kapok számlát?</summary><p>Igen, minden díjról számlát állítok ki.</p></details>
     </div>
   </div>
 </section>
@@ -390,12 +401,123 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     els.forEach(function(e){ io.observe(e); });
   } else els.forEach(function(e){ e.classList.add('in'); });
 
-  var d=new Date().getDay(), weekend=(d===0||d===6);
-  document.getElementById(weekend?'slotWeekend':'slotWeek').classList.add('active');
-  if(weekend){
-    document.getElementById('nowTitle').textContent='Ma hétvége van';
-    document.getElementById('nowText').textContent='Hívjon nyugodtan – most elérhető vagyok.';
+  /* ---- elérhetőség-jelző ---- */
+  var STATUS={
+    hu:{call:['Most hívhat!','Szombaton 10 és 16 óra között elérhető vagyok.'],
+        wkday:['Ma hétköznap van','Írjon SMS-t, és még ma visszahívom.'],
+        sms:['Most írjon SMS-t','Amint tudom, visszahívom.']},
+    en:{call:['You can call now!','I\'m available on Saturdays between 10:00 and 16:00.'],
+        wkday:['Today is a weekday','Send me an SMS and I\'ll call you back today.'],
+        sms:['Please send an SMS','I\'ll call you back as soon as I can.']}
+  };
+  function renderStatus(lang){
+    var now=new Date(), d=now.getDay(), h=now.getHours();
+    var callNow=(d===6 && h>=10 && h<16);
+    var key=callNow?'call':((d===0||d===6)?'sms':'wkday');
+    document.getElementById('slotWeekend').classList.toggle('active',callNow);
+    document.getElementById('slotWeek').classList.toggle('active',!callNow);
+    document.getElementById('nowTitle').textContent=STATUS[lang][key][0];
+    document.getElementById('nowText').textContent=STATUS[lang][key][1];
   }
+
+  /* ---- HU / EN ---- */
+  var EN={
+    "Miért kell?":"Why a website?","Hogyan működik?":"How it works","Árak":"Prices","Kapcsolat":"Contact","Ajánlatot kérek":"Get a quote",
+    "Weboldal, ami":"A website that","hozza":"brings in","az ügyfeleket.":"customers.",
+    "Kisvállalkozásoknak készítek gyors, mobilon is szép weboldalt – A-tól Z-ig. Ön csak a munkájával foglalkozik, a többit én intézem.":"I build fast websites for small businesses that look great on phones too – from A to Z. You focus on your work, I take care of the rest.",
+    "Ingyenes mintaoldalt kérek":"Get a free sample site",
+    "AUTÓSZERVIZ":"CAR SERVICE","Kovács Autószerviz":"Kovács Car Service",
+    "Szerviz, fék, futómű, műszaki vizsga – gyorsan, korrekt áron.":"Servicing, brakes, suspension, roadworthiness tests – fast and fairly priced.",
+    "📞 Hívás most":"📞 Call now","Szolgáltatások":"Services","Olajcsere, szerviz":"Oil change, service","Akár még aznap":"Often same day",
+    "Fék és futómű":"Brakes & suspension","Ingyenes átvizsgálás":"Free inspection","Műszaki vizsga":"Roadworthiness test","Felkészítés + vizsga":"Prep + test",
+    "Vélemények":"Reviews","Gyors, korrekt, csak ajánlani tudom.":"Fast and fair, highly recommended.","Pontosan azt csinálták, amit kértem.":"They did exactly what I asked.",
+    "Nyitvatartás":"Opening hours","Hétfő–Péntek":"Mon–Fri","Szombat":"Saturday","Vasárnap":"Sunday","Zárva":"Closed","Itt talál meg":"Find us here",
+    "Új hívás az oldalról":"New call from the website","épp most":"just now","Új 5 csillagos vélemény":"New 5-star review",
+    "Valaki útvonalat tervezett":"Someone got directions","a műhelyhez":"to the workshop",
+    "Weboldal-készítés":"Website design","Mobilbarát weboldal":"Mobile-friendly websites","Saját domain és e-mail":"Custom domain & email",
+    "Google Térkép-profil beállítása":"Google Maps profile setup","Online árlista és nyitvatartás":"Online price list & opening hours",
+    "Weboldal-karbantartás":"Website maintenance","Gyors betöltés":"Fast loading","Hívás egy gombnyomással":"One-tap calling",
+    "Miért kell weboldal?":"Why do you need a website?",
+    "Az ügyfelek ma a telefonjukon keresnek – és azt hívják, akit megtalálnak.":"Today, customers search on their phones – and they call whoever they find.",
+    "Weboldal nélkül":"Without a website","A Google-on csak egy pötty a térképen":"On Google you're just a dot on the map",
+    "Nem látszik, mit vállal és mennyiért":"Nobody can see what you offer or what it costs","Az ügyfél inkább a konkurenciát hívja":"Customers call your competitors instead",
+    "Egy elavult vagy hibás oldal még rosszabb benyomást kelt":"An outdated or broken site makes an even worse impression",
+    "A-Z Digital weboldallal":"With an A-Z Digital website","Megbízható, profi első benyomás":"A trustworthy, professional first impression",
+    "Egy gombnyomással hívhatják mobilon":"Customers can call you with one tap","Szolgáltatások, nyitvatartás, útvonal egy helyen":"Services, opening hours and directions in one place",
+    "Jobban megtalálják a Google-on":"Easier to find on Google",
+    "Mit kap?":"What you get","Minden, ami egy kisvállalkozásnak kell.":"Everything a small business needs.",
+    "Mobilra tervezve":"Designed for mobile","A látogatók többsége telefonról jön – nálam a telefonos nézet az első.":"Most visitors come from phones – so I design for mobile first.",
+    "Villámgyors":"Lightning fast","Pillanatok alatt betölt, nem kell várni rá.":"Loads in an instant, no waiting.",
+    "Hívás egy gombbal":"One-tap calling","Telefon, útvonal, nyitvatartás – mind kéznél.":"Phone, directions, opening hours – all at hand.",
+    "Google-barát":"Google-friendly","Rendbe teszem a Google-profilját is, hogy jól találják meg.":"I also tidy up your Google profile so people can find you.",
+    "Egyedi kinézet":"Unique design","Nem sablon: a saját szakmájához és színeihez igazítom.":"No templates: tailored to your trade and your colours.",
+    "Gondoskodom róla":"I look after it","Változott az ár vagy a nyitvatartás? Egy SMS, és frissítem.":"Prices or hours changed? Send me an SMS and I'll update it.",
+    "Négy egyszerű lépés, kockázat nélkül.":"Four simple steps, no risk.",
+    "Felveszem önnel a kapcsolatot":"I get in touch","Megnézem a vállalkozását és a Google-profilját.":"I look at your business and your Google profile.",
+    "Mintaoldal ingyen":"Free sample site","Elkészítem az oldal tervét – megnézheti, mielőtt bármit fizetne.":"I build a draft of your site – you see it before you pay anything.",
+    "Finomítjuk":"We fine-tune it","Az ön fotóival, szövegeivel, kívánságai szerint.":"With your photos and texts, the way you want it.",
+    "Élesítjük":"We go live","Saját domainen, pár napon belül elérhető.":"On your own domain, live within a few days.",
+    "Átlátható árak, rejtett költség nélkül.":"Clear prices, no hidden costs.",
+    "Weboldal elkészítése":"Website build","55 000 Ft-tól":"From 55,000 HUF",
+    "egyszeri díj – a pontos árat a felmérés után mondom meg":"one-off fee – I'll give you the exact price once I know what you need",
+    "Egyedi, mobilbarát kinézet":"Unique, mobile-friendly design","Szolgáltatások, árak, nyitvatartás":"Services, prices, opening hours",
+    "Hívás- és útvonalgomb":"Call and directions buttons","Google-profil rendbetétele":"Google profile clean-up",
+    "Első 3 hónap INGYEN":"First 3 months FREE","Havi karbantartás":"Monthly maintenance","2 990 Ft":"From 2,990 HUF","/hó-tól":"/mo",
+    "bármikor lemondható, 30 nap felmondással":"cancel anytime with 30 days' notice",
+    "Tárhely és biztonsági mentés":"Hosting and backups","Változások feltöltése (ár, nyitvatartás, képek)":"Updates (prices, hours, photos)",
+    "Gyors segítség, ha valami nem működik":"Quick help if something breaks","Évente díjkedvezményes fizetés":"Discount for yearly payment",
+    "Beszéljünk az ön weboldaláról!":"Let's talk about your website!",
+    "Hétköznap változó beosztásban dolgozom, ezért hétköznap kérem, először":"My weekday schedule changes, so on weekdays please contact me by",
+    "SMS-ben":"SMS first","keressen – amint tudom, visszahívom.":"– I'll call you back as soon as I can.",
+    "Szombaton 10 és 16 óra között":"On Saturdays between 10:00 and 16:00","nyugodtan hívjon.":"feel free to call.",
+    "Hétfő – Péntek, vasárnap":"Monday – Friday, Sunday","Először SMS-ben – visszahívom, amint szabad vagyok.":"SMS first – I'll call you back as soon as I'm free.",
+    "Szombat 10:00 – 16:00":"Saturday 10:00 – 16:00","Hívjon nyugodtan, ilyenkor elérhető vagyok.":"Feel free to call, I'm available then.",
+    "SMS küldése":"Send SMS","Hívás":"Call",
+    "Gyakori kérdések":"FAQ",
+    "Mennyi idő alatt készül el?":"How long does it take?",
+    "A legtöbb oldal néhány nap alatt elkészül, miután megkaptam a fotókat és az adatokat.":"Most sites are ready within a few days once I have your photos and details.",
+    "Kell hozzá értenem a számítógéphez?":"Do I need to be good with computers?",
+    "Egyáltalán nem. Mindent én intézek, önnek csak szólnia kell, ha valamit változtatni szeretne.":"Not at all. I handle everything – just tell me when you want something changed.",
+    "Kié lesz a domain és az oldal?":"Who owns the domain and the site?",
+    "A domain az ön nevére kerül. Ha egyszer felmondja a karbantartást, az oldalt átadom önnek.":"The domain is registered in your name. If you ever cancel maintenance, I hand the site over to you.",
+    "Mi van, ha nem tetszik a mintaoldal?":"What if I don't like the sample site?",
+    "Akkor nem fizet semmit. A mintaoldal ingyenes és kötelezettség nélküli.":"Then you pay nothing. The sample site is free, with no obligation.",
+    "Kapok számlát?":"Do I get an invoice?","Igen, minden díjról számlát állítok ki.":"Yes, I issue an invoice for every payment.",
+    "Weboldalak A-tól Z-ig":"Websites from A to Z"
+  };
+  var META={
+    hu:{title:document.title,desc:document.querySelector('meta[name=description]').content},
+    en:{title:'A-Z Digital – Websites for small businesses | Budapest',desc:'Fast, mobile-friendly websites for small businesses. One-off fee, monthly maintenance, first 3 months free.'}
+  };
+  var swapped=[];
+  function setLang(lang){
+    swapped.forEach(function(p){ p[0].nodeValue=p[1]; }); swapped=[];
+    if(lang==='en'){
+      var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null), n;
+      while((n=w.nextNode())){
+        var v=n.nodeValue, key=v.replace(/\s+/g,' ').trim();
+        if(key && EN.hasOwnProperty(key)){
+          swapped.push([n,v]);
+          n.nodeValue=v.match(/^\s*/)[0]+EN[key]+v.match(/\s*$/)[0];
+        }
+      }
+    }
+    document.documentElement.lang=lang;
+    document.title=META[lang].title;
+    document.querySelector('meta[name=description]').content=META[lang].desc;
+    document.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-l')===lang ? 'true':'false'); });
+    renderStatus(lang);
+    try{ localStorage.setItem('azd-lang',lang); }catch(e){}
+  }
+  document.querySelectorAll('.lang button').forEach(function(b){
+    b.addEventListener('click',function(){ setLang(b.getAttribute('data-l')); });
+  });
+  var start='hu';
+  try{ if(localStorage.getItem('azd-lang')==='en') start='en'; }catch(e){}
+  if(/[?&]lang=en\b/.test(location.search)) start='en';
+  if(/[?&]lang=hu\b/.test(location.search)) start='hu';
+  setLang(start);
+
   document.getElementById('yr').textContent=new Date().getFullYear();
 })();
 </script>
